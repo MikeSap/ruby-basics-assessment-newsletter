@@ -51,20 +51,20 @@ def print_recipients
  puts "#{calculate_recipients.join(",")}"
 end
 
-def print_one_article(hash)
+def print_one_article(article_h)
   # Write a method that will take an article hash
   # and print the title, author and text as a formatted string
   # See the README/sample output for examples
-  puts "#{hash[:title]}"
-  puts "by: #{hash[:author]}"
-  puts "#{hash[:text]}"
+  puts "#{article_h[:title]}"
+  puts "by: #{article_h[:author]}"
+  puts "#{article_h[:text]}"
 end
 
 
-def print_many_articles(arrays)
+def print_many_articles(articles_a)
   # Write a method that will take in an array of article hashes
   # and format each one using the print_one_article method
-  arrays.each do |article|
+  artticles_a.each do |article|
     print_one_article(article)
   end
 end
