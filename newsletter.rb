@@ -30,27 +30,43 @@ ARTICLES = [
 def calculate_recipients
   # Using the SUBSCRIBERS and UNSUBSCRIBED arrays,
   # write a method that will return an array of only the subscribers who haven't unsubscribed
+  users = [] 
+  SUBSCRIBERS.each do |subscriber|
+       if UNSUBSCRIBED.include?(subscriber)
+       else
+        users << subscriber
+       end         
+  end    
+  users 
 end
 
-def first_n_articles(number_of_articles
-  ARTICLES.first(number_of_articles)
+def first_n_articles(number_of_articles)
+  ARTICLES.first(number_of_articles.to_i)
 end
 
 def print_recipients
   # Write a method that uses the output of calculate_recipients
   # and returns a list of emails separated by commas
   # Ex) "abc@email.com, def@email.com, ghi@email.com"
+ puts "#{calculate_recipients.join(",")}"
 end
 
-def print_one_article(article)
+def print_one_article(hash)
   # Write a method that will take an article hash
   # and print the title, author and text as a formatted string
   # See the README/sample output for examples
+  puts "#{hash[:title]}"
+  puts "by: #{hash[:author]}"
+  puts "#{hash[:text]}"
 end
 
-def print_many_articles(articles)
+
+def print_many_articles(arrays)
   # Write a method that will take in an array of article hashes
   # and format each one using the print_one_article method
+  arrays.each do |article|
+    print_one_article(article)
+  end
 end
 
 def format_campus_location(campus)
@@ -81,7 +97,7 @@ def print_newsletter(number)
   puts format_footer(CAMPUS)
 
   end
-end
+
 
 def run
   # We want our program to print three articles by default,
