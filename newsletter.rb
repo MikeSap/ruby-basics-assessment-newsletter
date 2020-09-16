@@ -1,9 +1,5 @@
 require 'pry'
 
-#########################
-# Data for the newsletter
-#########################
-require "pry"
 CAMPUS = {
   "name": "DC",
   "address": "1440 G St NW, Washington, DC 20005",
@@ -23,13 +19,7 @@ ARTICLES = [
   {"author": "Tony Keeling Cartwright", "title": "Design", "text": "Often people, especially computer engineers, focus on the machines. But in fact we need to focus on humans, on how humans care about doing programming or operating the application of the machines."},
 ]
 
-#########################
-# Methods to generate the newsletter
-#########################
-
 def calculate_recipients
-  # Using the SUBSCRIBERS and UNSUBSCRIBED arrays,
-  # write a method that will return an array of only the subscribers who haven't unsubscribed
   users = [] 
   SUBSCRIBERS.each do |subscriber|
        if UNSUBSCRIBED.include?(subscriber)
@@ -45,26 +35,18 @@ def first_n_articles(number_of_articles)
 end
 
 def print_recipients
-  # Write a method that uses the output of calculate_recipients
-  # and returns a list of emails separated by commas
-  # Ex) "abc@email.com, def@email.com, ghi@email.com"
  puts "#{calculate_recipients.join(",")}"
 end
 
-def print_one_article(article_h)
-  # Write a method that will take an article hash
-  # and print the title, author and text as a formatted string
-  # See the README/sample output for examples
-  puts "#{article_h[:title]}"
-  puts "by: #{article_h[:author]}"
-  puts "#{article_h[:text]}"
+def print_one_article(hash)
+  puts "#{hash[:title]}"
+  puts "by: #{hash[:author]}"
+  puts "#{hash[:text]}"
 end
 
 
-def print_many_articles(articles_a)
-  # Write a method that will take in an array of article hashes
-  # and format each one using the print_one_article method
-  artticles_a.each do |article|
+def print_many_articles(arrays)
+   arrays.each do |article|
     print_one_article(article)
   end
 end
@@ -100,11 +82,8 @@ def print_newsletter(number)
 
 
 def run
-  # We want our program to print three articles by default,
-  # but we can change that number here
   print_newsletter("3")
 end
 
-# When we run "ruby newsletter.rb" in the command line,
-# the 'run' method will be called because we're calling it below.
+
 run
